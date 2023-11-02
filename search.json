@@ -40,6 +40,16 @@
     ]
   },
   {
+    "objectID": "plotly-test.html",
+    "href": "plotly-test.html",
+    "title": "my website",
+    "section": "",
+    "text": "import pandas as pd\n\n\ndf = pd.read_csv(\"../../source/se_68795_njt_hilton_garage/data/raw/gwb_timepoints.csv\", parse_dates=[\"EventTime\", \"DepartureTime\"])\ndata = df.set_index(\"EventTime\").resample(\"H\").count()\n\n\nimport plotly.express as px \npx.line(data[\"BUS_ID\"])\n\n                                                \n\n\n\nimport keplergl\n\nmap = keplergl.KeplerGl()\nmap.add_data(df[~pd.isnull(df[\"LATITUDE\"])][[\"LONGITUDE\", \"LATITUDE\"]])\nmap.save_to_html()\n\nUser Guide: https://docs.kepler.gl/docs/keplergl-jupyter\nMap saved to keplergl_map.html!",
+    "crumbs": [
+      "plotly-test.html"
+    ]
+  },
+  {
     "objectID": "index.html",
     "href": "index.html",
     "title": "Home",
